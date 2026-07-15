@@ -1,5 +1,8 @@
 import { site } from "@/lib/site-config";
 import { CallCta } from "@/components/ui/CallCta";
+import { ValueProps } from "@/components/home/ValueProps";
+import { TrustStrip } from "@/components/home/TrustStrip";
+import { ServiceArea } from "@/components/home/ServiceArea";
 
 /**
  * Home — one long scroll.
@@ -42,25 +45,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Scroll journey placeholder — replaced by the 3D HeroJourney in M3/M4 */}
-      <section className="flex min-h-[60vh] flex-col items-center justify-center gap-6 px-5">
-        <p className="type-plate text-haze/60">Scroll journey — 3D unit lands here</p>
-        <CallCta variant="mini" label="Need it fixed today? Call now" />
-      </section>
+      {/* Value props — becomes the choreographed scroll journey in M4;
+          this stacked form remains the reduced-motion experience */}
+      <ValueProps />
 
-      {/* Trust strip placeholder — designed in M2 */}
-      <section className="flex min-h-[40vh] flex-col items-center justify-center gap-6 border-t border-white/5 px-5">
-        <p className="type-plate text-haze/60">Trust strip — reviews &amp; badges</p>
-        <CallCta variant="mini" />
-      </section>
+      <TrustStrip />
 
-      {/* Service area + final CTA placeholder — designed in M2 */}
-      <section className="flex min-h-[50vh] flex-col items-center justify-center gap-8 border-t border-white/5 px-5">
-        <h2 className="type-display text-center text-4xl text-mist md:text-6xl">
-          Talk to a tech now.
-        </h2>
-        <CallCta variant="hero" />
-      </section>
+      <ServiceArea />
     </>
   );
 }
