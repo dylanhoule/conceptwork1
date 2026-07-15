@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SECTION_RANGES } from "@/lib/heat-pump-contract";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { HeroVisual } from "@/three/HeroVisual";
+import { Poster } from "@/three/Poster";
 import { HeroCopy } from "./HeroCopy";
 import { ValueProps, ValuePropCard, VALUE_PROPS } from "./ValueProps";
 
@@ -35,6 +36,9 @@ function StaticExperience() {
     <>
       <section className="relative flex min-h-svh items-center overflow-hidden">
         <Atmosphere />
+        <div className="absolute inset-y-0 right-0 left-0 opacity-70 md:left-[8%]">
+          <Poster />
+        </div>
         <div className="relative mx-auto w-full max-w-7xl px-5 py-28 md:px-8">
           <HeroCopy />
         </div>
@@ -53,6 +57,8 @@ export function HeroJourney() {
   const reduced = useReducedMotion();
   const scope = useRef<HTMLElement>(null);
   const progressRef = useRef(0);
+  // Parks the canvas frame loop once the visitor scrolls past the journey.
+  const [canvasActive, setCanvasActive] = useState(true);
 
   useGSAP(
     () => {
@@ -70,6 +76,7 @@ export function HeroJourney() {
           onUpdate: (self) => {
             progressRef.current = self.progress;
           },
+          onToggle: (self) => setCanvasActive(self.isActive),
         },
       });
 
@@ -103,7 +110,10 @@ export function HeroJourney() {
       aria-label="What Summit fixes — cooling, heating, air quality, 24/7 emergency"
     >
       <Atmosphere />
-      <HeroVisual progressRef={progressRef} />
+      {/* offset right on desktop so the unit doesn't sit under the copy */}
+      <div className="absolute inset-y-0 right-0 left-0 md:left-[8%]">
+        <HeroVisual progressRef={progressRef} active={canvasActive} />
+      </div>
 
       <div className="pointer-events-none relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 md:px-8">
         <div data-hero-copy className="pointer-events-auto">
@@ -118,7 +128,7 @@ export function HeroJourney() {
             i % 2 === 0 ? "md:left-10 lg:left-24" : "md:right-10 lg:right-24"
           }`}
         >
-          <div data-vp={prop.id} className="invisible">
+          <div data-vp={prop.id} className="invisible rounded-3xl bg-night/45">
             <ValuePropCard prop={prop} />
           </div>
         </div>

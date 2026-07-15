@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useRef } from "react";
-import { Canvas } from "@react-three/fiber";
-import { ContactShadows, Environment, Lightformer } from "@react-three/drei";
+import { useMemo, useRef, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { ContactShadows, Environment, Lightformer, PerformanceMonitor } from "@react-three/drei";
 import { ACESFilmicToneMapping } from "three";
 import type { Object3D } from "three";
 import { createRegistry } from "./registry";
@@ -15,20 +15,46 @@ export type HeatPumpSceneProps = {
   /** Scroll progress 0..1 — the ONLY input the hero visual needs. */
   progressRef: { current: number };
   quality?: "full" | "lite";
+  /** Dev lab only: lets canvas.toDataURL() capture poster frames. */
+  preserveBuffer?: boolean;
+  /** 'never' parks the GPU when the journey is out of view. */
+  frameloop?: "always" | "never";
+  /** Fires once after the first rendered frame (poster cross-fade). */
+  onReady?: () => void;
 };
+
+function FirstFrame({ onReady }: { onReady?: () => void }) {
+  const fired = useRef(false);
+  useFrame(() => {
+    if (!fired.current) {
+      fired.current = true;
+      onReady?.();
+    }
+  });
+  return null;
+}
 
 /**
  * The R3F implementation of the hero visual. Anything that honors
  * HeatPumpSceneProps can replace it (segmented GLB scene, scrub video, poster)
  * — see src/lib/heat-pump-contract.ts.
  */
-export function HeatPumpScene({ progressRef, quality = "full" }: HeatPumpSceneProps) {
+export function HeatPumpScene({
+  progressRef,
+  quality = "full",
+  preserveBuffer = false,
+  frameloop = "always",
+  onReady,
+}: HeatPumpSceneProps) {
   const registry = useMemo(createRegistry, []);
   const rootRef = useRef<Object3D | null>(null);
+  // Steps down if sustained frame drops are detected (PerformanceMonitor).
+  const [maxDpr, setMaxDpr] = useState(quality === "full" ? 1.75 : 1.5);
 
   return (
     <Canvas
-      dpr={quality === "full" ? [1, 1.75] : [1, 1.5]}
+      dpr={[1, maxDpr]}
+      frameloop={frameloop}
       camera={{ fov: 32, position: [1.2, 1.6, 4.2], near: 0.1, far: 40 }}
       gl={{
         antialias: true,
@@ -36,9 +62,12 @@ export function HeatPumpScene({ progressRef, quality = "full" }: HeatPumpScenePr
         powerPreference: "high-performance",
         toneMapping: ACESFilmicToneMapping,
         toneMappingExposure: 1.45,
+        preserveDrawingBuffer: preserveBuffer,
       }}
       aria-hidden="true"
     >
+      <FirstFrame onReady={onReady} />
+      <PerformanceMonitor onDecline={() => setMaxDpr((d) => Math.max(1.1, d - 0.25))} />
       <SceneRig progressRef={progressRef} registry={registry} rootRef={rootRef} />
 
       <group ref={rootRef}>

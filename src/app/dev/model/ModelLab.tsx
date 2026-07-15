@@ -42,7 +42,7 @@ export function ModelLab() {
 
   return (
     <div className="fixed inset-0 z-[70] bg-night">
-      <HeatPumpScene key={quality} progressRef={progressRef} quality={quality} />
+      <HeatPumpScene key={quality} progressRef={progressRef} quality={quality} preserveBuffer />
 
       <div className="glass fixed inset-x-4 bottom-4 z-10 mx-auto flex max-w-2xl flex-col gap-3 rounded-2xl p-5">
         <div className="flex items-center justify-between">
