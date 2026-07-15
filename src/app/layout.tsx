@@ -25,6 +25,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
     default: `${site.name} — 24/7 Heating & Cooling in Fairview`,
     template: `%s — ${site.name}`,
