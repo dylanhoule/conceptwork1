@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand palette — the dual-temperature identity */
+  --color-night: #0a0c10; /* base */
+  --color-abyss: #06070a; /* footer / deepest layer */
+  --color-panel: #10141b; /* raised surface interior */
+  --color-frost: #57b8ff; /* cooling glow */
+  --color-ember: #ff9e45; /* heating glow */
+  --color-mist: #eef3f8; /* primary text */
+  --color-haze: #98a3b3; /* secondary text — ≥4.5:1 on night */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-archivo);
+  --font-body: var(--font-instrument);
+  --font-plate: var(--font-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-night text-mist font-body;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-frost) 35%, transparent);
+    color: var(--color-mist);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-frost);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Oversized display headlines: Archivo pushed wide via its variable width axis */
+@utility type-display {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 120;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 0.95;
+}
+
+/* "Nameplate" labels — etched-equipment-plate eyebrows in mono caps */
+@utility type-plate {
+  font-family: var(--font-plate);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Glass surface */
+@utility glass {
+  background: color-mix(in oklab, white 4%, transparent);
+  border: 1px solid color-mix(in oklab, white 9%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Dual-temperature glow shadow — frost bleeds left, ember bleeds right */
+@utility glow-dual {
+  box-shadow:
+    -16px 4px 44px -14px color-mix(in oklab, var(--color-frost) 55%, transparent),
+    16px 4px 44px -14px color-mix(in oklab, var(--color-ember) 55%, transparent);
 }

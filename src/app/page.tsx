@@ -1,65 +1,66 @@
-import Image from "next/image";
+import { site } from "@/lib/site-config";
+import { CallCta } from "@/components/ui/CallCta";
 
+/**
+ * Home — one long scroll.
+ * M1: hero + stub sections. The scroll journey (3D + choreography) lands in M3/M4;
+ * the static sections are fully designed in M2.
+ */
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      {/* Hero */}
+      <section className="relative flex min-h-svh items-center overflow-hidden">
+        {/* Dual-temperature atmosphere */}
+        <div
+          aria-hidden="true"
+          className="absolute -top-40 -left-40 h-[36rem] w-[36rem] rounded-full bg-frost/15 blur-3xl"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <div
+          aria-hidden="true"
+          className="absolute -right-40 -bottom-40 h-[36rem] w-[36rem] rounded-full bg-ember/15 blur-3xl"
+        />
+
+        <div className="relative mx-auto w-full max-w-7xl px-5 py-28 md:px-8">
+          <p className="type-plate text-haze">
+            24/7 heating &amp; cooling — {site.serviceArea}
           </p>
+          <h1 className="type-display mt-5 max-w-4xl text-5xl text-mist md:text-8xl">
+            Comfort is one call away.
+          </h1>
+          <p className="mt-6 max-w-md text-lg text-haze">
+            Heating and cooling for Fairview — fixed fast, done right.
+          </p>
+          <div className="mt-10">
+            <CallCta variant="hero" />
+          </div>
+          <ul className="type-plate mt-10 flex flex-wrap gap-x-6 gap-y-2 text-haze/80">
+            <li>Since {site.since}</li>
+            <li>Licensed &amp; insured</li>
+            <li>24/7 emergency</li>
+          </ul>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Scroll journey placeholder — replaced by the 3D HeroJourney in M3/M4 */}
+      <section className="flex min-h-[60vh] flex-col items-center justify-center gap-6 px-5">
+        <p className="type-plate text-haze/60">Scroll journey — 3D unit lands here</p>
+        <CallCta variant="mini" label="Need it fixed today? Call now" />
+      </section>
+
+      {/* Trust strip placeholder — designed in M2 */}
+      <section className="flex min-h-[40vh] flex-col items-center justify-center gap-6 border-t border-white/5 px-5">
+        <p className="type-plate text-haze/60">Trust strip — reviews &amp; badges</p>
+        <CallCta variant="mini" />
+      </section>
+
+      {/* Service area + final CTA placeholder — designed in M2 */}
+      <section className="flex min-h-[50vh] flex-col items-center justify-center gap-8 border-t border-white/5 px-5">
+        <h2 className="type-display text-center text-4xl text-mist md:text-6xl">
+          Talk to a tech now.
+        </h2>
+        <CallCta variant="hero" />
+      </section>
+    </>
   );
 }
