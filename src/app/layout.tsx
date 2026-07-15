@@ -3,6 +3,7 @@ import { Archivo, IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
 import { Header } from "@/components/chrome/Header";
 import { StickyCallButton } from "@/components/chrome/StickyCallButton";
 import { Footer } from "@/components/chrome/Footer";
+import { SmoothScroll } from "@/lib/scroll";
 import { site } from "@/lib/site-config";
 import "./globals.css";
 
@@ -52,6 +53,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <SmoothScroll />
         <Header />
         <main id="main" className="flex-1">
           {children}

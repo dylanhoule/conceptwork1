@@ -85,10 +85,28 @@ export const VALUE_PROPS: ValueProp[] = [
   },
 ];
 
+/** One value-prop card — shared by the static stack and the scroll journey overlay. */
+export function ValuePropCard({ prop, className = "" }: { prop: ValueProp; className?: string }) {
+  return (
+    <GlassPanel accent={prop.accent} className={className}>
+      <div className="p-7 md:p-9">
+        <div className={`flex items-center gap-3 ${prop.accentText}`}>
+          {prop.icon}
+          <span className="type-plate">{prop.eyebrow}</span>
+        </div>
+        <h3 className="type-display mt-4 text-2xl text-mist md:text-4xl">{prop.title}</h3>
+        <p className="mt-3 max-w-lg text-sm text-haze md:text-base">{prop.body}</p>
+        <div className="mt-5">
+          <CallCta variant="mini" label={prop.cta} />
+        </div>
+      </div>
+    </GlassPanel>
+  );
+}
+
 /**
- * Static value-prop sections. In M4 these panels are re-choreographed inside
- * the pinned scroll journey; this stacked layout remains the reduced-motion
- * and poster-tier experience.
+ * Static value-prop stack — the reduced-motion and poster-tier experience
+ * (the scroll journey re-choreographs the same cards).
  */
 export function ValueProps() {
   return (
@@ -100,23 +118,11 @@ export function ValueProps() {
       />
       <div className="mt-14 grid gap-6 md:mt-20 md:gap-8">
         {VALUE_PROPS.map((prop, i) => (
-          <GlassPanel
+          <ValuePropCard
             key={prop.id}
-            accent={prop.accent}
+            prop={prop}
             className={`md:max-w-2xl ${i % 2 === 1 ? "md:ml-auto" : ""}`}
-          >
-            <div className="p-8 md:p-10">
-              <div className={`flex items-center gap-3 ${prop.accentText}`}>
-                {prop.icon}
-                <span className="type-plate">{prop.eyebrow}</span>
-              </div>
-              <h3 className="type-display mt-5 text-3xl text-mist md:text-4xl">{prop.title}</h3>
-              <p className="mt-4 max-w-lg text-haze">{prop.body}</p>
-              <div className="mt-6">
-                <CallCta variant="mini" label={prop.cta} />
-              </div>
-            </div>
-          </GlassPanel>
+          />
         ))}
       </div>
     </section>

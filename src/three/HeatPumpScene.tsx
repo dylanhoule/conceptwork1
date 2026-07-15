@@ -9,6 +9,7 @@ import { createRegistry } from "./registry";
 import { HeatPumpModel } from "./HeatPumpModel";
 import { SceneRig } from "./SceneRig";
 import { GlowPlanes } from "./GlowPlanes";
+import { AirStreams } from "./AirStreams";
 
 export type HeatPumpSceneProps = {
   /** Scroll progress 0..1 — the ONLY input the hero visual needs. */
@@ -44,6 +45,7 @@ export function HeatPumpScene({ progressRef, quality = "full" }: HeatPumpScenePr
         <HeatPumpModel registry={registry} quality={quality} />
       </group>
 
+      <AirStreams progressRef={progressRef} quality={quality} />
       <GlowPlanes />
 
       {/* Dual-glow identity baked into the metal via a code-authored environment
