@@ -29,7 +29,7 @@ export function Team() {
       <SectionHeading
         eyebrow="The crew"
         title="Faces you'll recognize."
-        lede="Small team, long tenures — the tech who shows up this year is the one who showed up last year."
+        lede="Small team, long tenures: the tech who shows up this year is the one who showed up last year."
       />
       <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {team.map((member, i) => (

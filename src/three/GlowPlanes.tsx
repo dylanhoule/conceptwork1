@@ -34,7 +34,7 @@ function Glow({
 }
 
 /**
- * The dual-temperature atmosphere behind the unit — cheap additive sprites
+ * The dual-temperature atmosphere behind the unit: cheap additive sprites
  * instead of postprocessing bloom (the 60fps-on-midrange-phone budget).
  */
 export function GlowPlanes() {

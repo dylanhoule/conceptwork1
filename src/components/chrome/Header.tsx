@@ -7,7 +7,7 @@ export function Header() {
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-40 bg-gradient-to-b from-night/90 via-night/50 to-transparent">
       <div className="pointer-events-auto mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
-        <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} — home`}>
+        <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name}, home`}>
           <LogoMark id="logo-grad-header" />
           <span className="leading-none">
             <span className="type-display block text-lg text-mist">
@@ -24,7 +24,7 @@ export function Header() {
           >
             About
           </Link>
-          {/* Header phone hides on small screens — the sticky bottom bar owns mobile */}
+          {/* Header phone hides on small screens; the sticky bottom bar owns mobile */}
           <a
             href={site.telHref}
             aria-label={`Call ${site.name} at ${site.phoneDisplay}`}

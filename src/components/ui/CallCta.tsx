@@ -6,7 +6,7 @@ type Variant = "hero" | "section" | "mini";
 const ariaLabel = `Call ${site.name} at ${site.phoneDisplay}`;
 
 /**
- * The site's ONE primary action. Every variant is a tel: link — no forms,
+ * The site's ONE primary action. Every variant is a tel: link. No forms,
  * no secondary funnels (see context/ABOUT.md conversion rules).
  */
 export function CallCta({

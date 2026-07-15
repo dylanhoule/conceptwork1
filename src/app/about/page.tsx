@@ -10,10 +10,10 @@ import { ServiceAreaMap } from "@/components/home/ServiceAreaMap";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `The team your neighbors call. ${site.name} — licensed, insured, and answering the phone since ${site.since}.`,
+  description: `The team your neighbors call. ${site.name}: licensed, insured, and answering the phone since ${site.since}.`,
 };
 
-/** About — the trust page. */
+/** About: the trust page. */
 export default function About() {
   return (
     <>

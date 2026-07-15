@@ -19,13 +19,13 @@ export function Reviews() {
             <StarRating rating={5} label="Rated 5 out of 5 stars" />
             <blockquote className="mt-4 text-mist">&ldquo;{r.quote}&rdquo;</blockquote>
             <p className="type-plate mt-4 text-haze/80">
-              {r.name} — {r.area}
+              {r.name}, {r.area}
             </p>
           </GlassPanel>
         ))}
       </div>
       <div className="mt-12">
-        <CallCta variant="mini" label="Get the same treatment — call" />
+        <CallCta variant="mini" label="Want the same treatment? Call now" />
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ export function Certifications() {
         <SectionHeading
           eyebrow="Credentials"
           title="Certified, not just confident."
-          lede={`${site.license} — and the paperwork behind every claim below.`}
+          lede={`${site.license}, and the paperwork behind every claim below.`}
         />
         <dl className="mt-14 grid gap-x-10 gap-y-8 sm:grid-cols-2">
           {certifications.map((c) => (

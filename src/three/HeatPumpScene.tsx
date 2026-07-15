@@ -12,7 +12,7 @@ import { GlowPlanes } from "./GlowPlanes";
 import { AirStreams } from "./AirStreams";
 
 export type HeatPumpSceneProps = {
-  /** Scroll progress 0..1 — the ONLY input the hero visual needs. */
+  /** Scroll progress 0..1, the ONLY input the hero visual needs. */
   progressRef: { current: number };
   quality?: "full" | "lite";
   /** Dev lab only: lets canvas.toDataURL() capture poster frames. */
@@ -36,8 +36,8 @@ function FirstFrame({ onReady }: { onReady?: () => void }) {
 
 /**
  * The R3F implementation of the hero visual. Anything that honors
- * HeatPumpSceneProps can replace it (segmented GLB scene, scrub video, poster)
- * — see src/lib/heat-pump-contract.ts.
+ * HeatPumpSceneProps can replace it (segmented GLB scene, scrub video, poster);
+ * see src/lib/heat-pump-contract.ts.
  */
 export function HeatPumpScene({
   progressRef,
@@ -77,8 +77,8 @@ export function HeatPumpScene({
       <AirStreams progressRef={progressRef} quality={quality} />
       <GlowPlanes />
 
-      {/* Dual-glow identity baked into the metal via a code-authored environment
-          — no HDR downloads, no network. */}
+      {/* Dual-glow identity baked into the metal via a code-authored environment:
+          no HDR downloads, no network. */}
       <Environment resolution={256} frames={1}>
         <Lightformer form="rect" intensity={2.4} color="#57b8ff" position={[-3, 2, 1]} rotation-y={Math.PI / 2} scale={[4, 3, 1]} />
         <Lightformer form="rect" intensity={2.1} color="#ff9e45" position={[3, 1.5, -0.5]} rotation-y={-Math.PI / 2} scale={[4, 3, 1]} />

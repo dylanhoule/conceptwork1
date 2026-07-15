@@ -3,9 +3,9 @@ import { site } from "@/lib/site-config";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = `${site.name} — ${site.tagline}`;
+export const alt = `${site.name}: ${site.tagline}`;
 
-/** Social share card, generated in code — no raster asset to maintain. */
+/** Social share card, generated in code, no raster asset to maintain. */
 export default function OpengraphImage() {
   return new ImageResponse(
     (

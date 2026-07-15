@@ -2,7 +2,7 @@
 
 import { compressorShell, steelDark } from "../materials";
 
-/** Hermetic compressor can + muffler — the heart revealed on the emergency beat. */
+/** Hermetic compressor can + muffler, the heart revealed on the emergency beat. */
 export function Compressor() {
   return (
     <group>

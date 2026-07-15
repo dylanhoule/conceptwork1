@@ -11,7 +11,7 @@ export const site = {
   telHref: "tel:+15555550142",
   serviceArea: "Fairview & surrounding areas",
   since: 2003,
-  hours: "Open 24/7 — nights, weekends, holidays",
+  hours: "Open 24/7: nights, weekends, holidays",
   license: "License #HVAC-0000",
   credentials: ["Licensed & insured", "EPA 608 certified", "NATE certified"],
   rating: { stars: 4.9, count: "500+ five-star reviews" },

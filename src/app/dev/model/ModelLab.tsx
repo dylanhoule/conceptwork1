@@ -47,7 +47,7 @@ export function ModelLab() {
       <div className="glass fixed inset-x-4 bottom-4 z-10 mx-auto flex max-w-2xl flex-col gap-3 rounded-2xl p-5">
         <div className="flex items-center justify-between">
           <span className="type-plate text-haze">
-            progress {readout.p.toFixed(3)} — {readout.section}
+            progress {readout.p.toFixed(3)} · {readout.section}
           </span>
           <button
             type="button"

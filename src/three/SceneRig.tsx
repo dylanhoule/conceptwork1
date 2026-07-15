@@ -20,7 +20,7 @@ const LOOK_AT = new Vector3(0, 0.78, 0);
 /**
  * The single frame loop: damps the incoming scroll progress (so scrub jumps
  * stay buttery), then drives part poses, fan spin, glows, idle turntable,
- * and the camera — all from choreography.ts pure math.
+ * and the camera, all from choreography.ts pure math.
  */
 export function SceneRig({
   progressRef,
@@ -58,7 +58,7 @@ export function SceneRig({
     if (registry.ledMat.current) {
       registry.ledMat.current.emissiveIntensity = 3 * ledPulse(p, state.clock.elapsedTime);
     }
-    // Idle sway while assembled — bounded (not a free-running turntable) so
+    // Idle sway while assembled, bounded (not a free-running turntable) so
     // the model's facing always matches the camera keyframes at every beat.
     if (rootRef.current) {
       const sway = 0.28 * Math.sin(state.clock.elapsedTime * 0.3) * (1 - explodeEnvelope(p));

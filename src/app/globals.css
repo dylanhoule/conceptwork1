@@ -2,14 +2,14 @@
 @import "lenis/dist/lenis.css";
 
 @theme {
-  /* Brand palette — the dual-temperature identity */
+  /* Brand palette: the dual-temperature identity */
   --color-night: #0a0c10; /* base */
   --color-abyss: #06070a; /* footer / deepest layer */
   --color-panel: #10141b; /* raised surface interior */
   --color-frost: #57b8ff; /* cooling glow */
   --color-ember: #ff9e45; /* heating glow */
   --color-mist: #eef3f8; /* primary text */
-  --color-haze: #98a3b3; /* secondary text — ≥4.5:1 on night */
+  --color-haze: #98a3b3; /* secondary text, ≥4.5:1 on night */
 }
 
 @theme inline {
@@ -44,7 +44,7 @@
   line-height: 0.95;
 }
 
-/* "Nameplate" labels — etched-equipment-plate eyebrows in mono caps */
+/* "Nameplate" labels: etched-equipment-plate eyebrows in mono caps */
 @utility type-plate {
   font-family: var(--font-plate);
   font-size: 0.6875rem;
@@ -61,7 +61,7 @@
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* Dual-temperature glow shadow — frost bleeds left, ember bleeds right */
+/* Dual-temperature glow shadow: frost bleeds left, ember bleeds right */
 @utility glow-dual {
   box-shadow:
     -16px 4px 44px -14px color-mix(in oklab, var(--color-frost) 55%, transparent),

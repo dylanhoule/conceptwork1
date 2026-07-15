@@ -1,5 +1,5 @@
 /**
- * Stylized service-area map — pure inline SVG, no map embed, no API keys.
+ * Stylized service-area map: pure inline SVG, no map embed, no API keys.
  * Abstract streets + coverage rings radiating from the Summit HQ dot.
  * HIGGSFIELD_SLOT: could be replaced by a rendered map illustration later.
  */
@@ -49,7 +49,7 @@ export function ServiceAreaMap() {
         <circle cx="240" cy="300" r="3.5" />
       </g>
 
-      {/* HQ dot — pulses unless the visitor prefers reduced motion */}
+      {/* HQ dot: pulses unless the visitor prefers reduced motion */}
       <circle cx="240" cy="180" r="10" fill="var(--color-frost)" fillOpacity="0.25" className="motion-safe:animate-ping" style={{ transformOrigin: "240px 180px" }} />
       <circle cx="240" cy="180" r="6" fill="var(--color-mist)" />
       <circle cx="240" cy="180" r="3" fill="var(--color-ember)" />

@@ -10,11 +10,11 @@ export type HeatPumpRegistry = {
   parts: Map<PartId, Object3D>;
   /** Spinning fan rotor (child of fanAssembly). */
   rotor: { current: Object3D | null };
-  /** Coil fin material — subtle warm tint during the heating beat. */
+  /** Coil fin material: subtle warm tint during the heating beat. */
   coilMat: { current: MeshStandardMaterial | null };
-  /** Copper tube material — glows hot during the heating beat. */
+  /** Copper tube material: glows hot during the heating beat. */
   coilTubeMat: { current: MeshStandardMaterial | null };
-  /** Status LED material — pulses during the emergency beat. */
+  /** Status LED material: pulses during the emergency beat. */
   ledMat: { current: MeshStandardMaterial | null };
 };
 

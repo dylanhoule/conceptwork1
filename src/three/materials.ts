@@ -1,6 +1,6 @@
 /**
  * Shared PBR material prop-sets for the code-built unit.
- * Spread onto <meshStandardMaterial|meshPhysicalMaterial> — no texture files,
+ * Spread onto <meshStandardMaterial|meshPhysicalMaterial>; no texture files,
  * the Lightformer environment does the work in the reflections.
  */
 

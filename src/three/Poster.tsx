@@ -1,5 +1,5 @@
 /**
- * Static hero visual — in the server HTML immediately, so the page has its
+ * Static hero visual, in the server HTML immediately, so the page has its
  * "wow" before (or without) the canvas. A hand-authored SVG composition of
  * the unit in the dual-glow atmosphere; zero network weight beyond markup.
  *

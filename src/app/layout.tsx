@@ -27,8 +27,8 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
-    default: `${site.name} — 24/7 Heating & Cooling in Fairview`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} | 24/7 Heating & Cooling in Fairview`,
+    template: `%s | ${site.name}`,
   },
   description: `Heating, cooling and air quality for ${site.serviceArea}. 24/7 emergency service, licensed & insured, since ${site.since}. ${site.tagline}`,
 };

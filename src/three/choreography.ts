@@ -6,7 +6,7 @@ import {
 } from "@/lib/heat-pump-contract";
 
 /**
- * Pure progress → pose math. No three.js, no React — testable in isolation
+ * Pure progress → pose math. No three.js, no React: testable in isolation
  * and reusable verbatim if the code-built model is swapped for a GLB.
  */
 
@@ -35,7 +35,7 @@ export function explodeEnvelope(p: number): number {
 export type PartPose = {
   position: [number, number, number];
   rotation: [number, number, number];
-  /** 0..1 — drives emissive/highlight on the part during its focus beat. */
+  /** 0..1, drives emissive/highlight on the part during its focus beat. */
   glow: number;
 };
 
@@ -60,7 +60,7 @@ export function partPose(id: PartId, p: number): PartPose {
 }
 
 /**
- * Camera keyframes at section MIDPOINTS — each beat's showcase angle lands
+ * Camera keyframes at section MIDPOINTS: each beat's showcase angle lands
  * exactly when that beat peaks; boundaries become the transitions.
  */
 const CAMERA_KEYS: Array<{

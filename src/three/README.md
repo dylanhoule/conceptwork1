@@ -1,4 +1,4 @@
-# The hero visual — architecture & swap seams
+# The hero visual: architecture & swap seams
 
 The 3D heat pump is deliberately replaceable. Everything on the page talks to
 it through two narrow contracts; swap what's behind them and nothing else
@@ -14,7 +14,7 @@ changes.
 ```
 
 `HeroJourney` owns the pinned ScrollTrigger and writes `progressRef.current`
-every scroll frame. Implementations read it — they never know about GSAP,
+every scroll frame. Implementations read it; they never know about GSAP,
 Lenis, or the DOM around them.
 
 **Swap paths:**
@@ -29,14 +29,14 @@ Lenis, or the DOM around them.
 
 `src/lib/heat-pump-contract.ts` defines:
 
-- `PART_IDS` — the 11 part names (`cabinetFront`, `coil`, `fanAssembly`, …)
-- `SECTION_RANGES` — journey beats as 0..1 fractions (shared with the DOM
+- `PART_IDS`: the 11 part names (`cabinetFront`, `coil`, `fanAssembly`, …)
+- `SECTION_RANGES`: journey beats as 0..1 fractions (shared with the DOM
   panels, so copy and choreography can't drift)
-- `PART_CHOREO` — per-part explode offset/rotation + focus beat
+- `PART_CHOREO`: per-part explode offset/rotation + focus beat
 
 `src/three/choreography.ts` is pure math: `partPose(id, progress)`,
 `cameraPose(progress)`, `fanSpeed`, `coilGlow`, `ledPulse`. No three.js, no
-React — it survives any model swap.
+React; it survives any model swap.
 
 To use a **commissioned/AI-generated GLB**: name its nodes to `PART_IDS`,
 load it, fill the same registry (`registry.parts.set(id,
@@ -45,16 +45,16 @@ scene.getObjectByName(id))`), and keep `SceneRig` as-is. The code-built
 
 ## Quality tiers (`src/lib/quality.ts`)
 
-- `full` — desktop: 56 coil fins, DPR ≤ 1.75, ContactShadows
-- `lite` — coarse pointer / narrow viewport: 28 fins, DPR ≤ 1.5, no shadows
-- `poster` — no WebGL, low memory, or reduced motion: static poster, no canvas
+- `full`: desktop (56 coil fins, DPR ≤ 1.75, ContactShadows)
+- `lite`: coarse pointer / narrow viewport (28 fins, DPR ≤ 1.5, no shadows)
+- `poster`: no WebGL, low memory, or reduced motion (static poster, no canvas)
 
 `PerformanceMonitor` also steps DPR down on sustained frame drops, and the
 frame loop parks (`frameloop="never"`) when the journey scrolls out of view.
 
 ## Dev tools
 
-- `/dev/model` — scrub the full choreography with a slider (dev-only route).
+- `/dev/model`: scrub the full choreography with a slider (dev-only route).
   `?stage=bare|model|rig|env|glow|full` mounts the scene piece by piece.
 - **Poster capture**: with the lab open and the window visible, run in the
   console:

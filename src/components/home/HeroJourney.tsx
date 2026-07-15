@@ -51,7 +51,7 @@ function StaticExperience() {
 /**
  * The pinned scroll journey. One ScrollTrigger scrubs a 0..1 timeline:
  * progressRef feeds the 3D scene (SceneRig), the same SECTION_RANGES place
- * the DOM value-prop panels — copy and choreography cannot drift apart.
+ * the DOM value-prop panels, so copy and choreography cannot drift apart.
  */
 export function HeroJourney() {
   const reduced = useReducedMotion();
@@ -107,7 +107,7 @@ export function HeroJourney() {
     <section
       ref={scope}
       className="relative h-svh overflow-hidden"
-      aria-label="What Summit fixes — cooling, heating, air quality, 24/7 emergency"
+      aria-label="What Summit fixes: cooling, heating, air quality, 24/7 emergency"
     >
       <Atmosphere />
       {/* offset right on desktop so the unit doesn't sit under the copy */}

@@ -1,5 +1,5 @@
 /**
- * Demo content for the fictional brand — reviews, team, stats, neighborhoods.
+ * Demo content for the fictional brand: reviews, team, stats, neighborhoods.
  * Re-skinning for a real client = swap this file + site-config.ts.
  */
 
@@ -37,7 +37,7 @@ export const stats = [
   { value: "45 min", label: "average emergency response" },
 ] as const;
 
-/* HIGGSFIELD_SLOT: team portraits — replace monogram avatars with AI photography */
+/* HIGGSFIELD_SLOT: team portraits: replace monogram avatars with AI photography */
 export const team = [
   {
     name: "Ray Delgado",
@@ -57,7 +57,7 @@ export const team = [
   {
     name: "Josie Tran",
     role: "Comfort advisor",
-    line: "Explains your options in plain English — no pressure, no jargon.",
+    line: "Explains your options in plain English. No pressure, no jargon.",
   },
 ] as const;
 

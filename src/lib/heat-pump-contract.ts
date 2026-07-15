@@ -5,10 +5,10 @@
  * and ranges. Two replacement paths, both without touching page code:
  *
  * 1. Segmented GLB (commissioned or AI-generated): name its nodes to PART_IDS
- *    and map them via scene.getObjectByName(id) — choreography.ts keeps working.
+ *    and map them via scene.getObjectByName(id); choreography.ts keeps working.
  * 2. Entirely different hero visual (HIGGSFIELD_SLOT: scroll-scrubbed video or
  *    photoreal poster): implement the HeroVisual interface { progressRef,
- *    quality } and swap the component — the page and scroll wiring never change.
+ *    quality } and swap the component; the page and scroll wiring never change.
  */
 
 export const PART_IDS = [

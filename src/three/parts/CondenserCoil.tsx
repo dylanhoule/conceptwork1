@@ -8,7 +8,7 @@ import { aluminumFin } from "../materials";
 /**
  * Condenser coil bank: instanced vertical aluminum fins over a dark backing
  * plate, crossed by copper runs. On the heating beat the copper glows hot
- * (strong emissive) while the fins pick up a subtle warm tint — SceneRig
+ * (strong emissive) while the fins pick up a subtle warm tint; SceneRig
  * drives both via registry.coilMat / registry.coilTubeMat.
  */
 export function CondenserCoil({
@@ -59,7 +59,7 @@ export function CondenserCoil({
           <Instance key={i} position={[-span / 2 + (i * span) / (fins - 1), 0, 0]} />
         ))}
       </Instances>
-      {/* copper runs through the fin bank — these glow on the heating beat */}
+      {/* copper runs through the fin bank; these glow on the heating beat */}
       {[-0.35, 0.25].map((y) => (
         <mesh key={y} position={[0, y, 0]} rotation={[0, 0, Math.PI / 2]} material={tubeMat}>
           <cylinderGeometry args={[0.022, 0.022, 1.06, 16]} />

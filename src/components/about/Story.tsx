@@ -22,11 +22,11 @@ export function Story() {
             treat a 2 am no-heat call like the emergency it is.
           </p>
           <p>
-            Most of our work comes from the same streets, year after year — the neighbor who
+            Most of our work comes from the same streets, year after year: the neighbor who
             called us once and never called anyone else again.
           </p>
           <div className="pt-2">
-            <CallCta variant="mini" label="Become a neighbor — call us" />
+            <CallCta variant="mini" label="Become a neighbor: call us" />
           </div>
         </div>
       </div>

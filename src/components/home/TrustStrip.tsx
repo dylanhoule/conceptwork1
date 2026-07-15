@@ -22,7 +22,7 @@ export function TrustStrip() {
             <GlassPanel key={r.name} className="p-7">
               <blockquote className="text-mist">&ldquo;{r.quote}&rdquo;</blockquote>
               <p className="type-plate mt-4 text-haze/80">
-                {r.name} — {r.area}
+                {r.name}, {r.area}
               </p>
             </GlassPanel>
           ))}
@@ -36,7 +36,7 @@ export function TrustStrip() {
         </div>
 
         <div className="mt-12 text-center">
-          <CallCta label={`Join them — call ${site.phoneDisplay}`} />
+          <CallCta label={`Join them: call ${site.phoneDisplay}`} />
         </div>
       </div>
     </section>

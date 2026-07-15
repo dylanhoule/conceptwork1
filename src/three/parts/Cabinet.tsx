@@ -2,7 +2,7 @@
 
 import { graphitePanel } from "../materials";
 
-/** Left / right body panels — separate parts so the Air-Quality beat can swing them open. */
+/** Left / right body panels, separate parts so the Air-Quality beat can swing them open. */
 export function SidePanel() {
   return (
     <mesh>
@@ -39,7 +39,7 @@ export function FrontPanel() {
         <boxGeometry args={[0.07, 0.92, 0.02]} />
         <meshPhysicalMaterial {...graphitePanel} clearcoat={0.35} clearcoatRoughness={0.3} />
       </mesh>
-      {/* fan shroud — open cylinder facing +z */}
+      {/* fan shroud: open cylinder facing +z */}
       <mesh position={[0, 0.13, 0.03]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.46, 0.46, 0.1, 48, 1, true]} />
         <meshStandardMaterial

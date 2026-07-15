@@ -58,8 +58,8 @@ export const VALUE_PROPS: ValueProp[] = [
     id: "airQuality",
     eyebrow: "Air quality",
     title: "Air your family can breathe easy about.",
-    body: "Filtration, humidity control, and fresh ductwork — for allergies, dust, and that stale-house feeling.",
-    cta: "Breathe easier — call",
+    body: "Filtration, humidity control, and fresh ductwork for allergies, dust, and that stale-house feeling.",
+    cta: "Stale air? Call now",
     accent: "mist",
     accentText: "text-mist",
     icon: (
@@ -72,7 +72,7 @@ export const VALUE_PROPS: ValueProp[] = [
     id: "emergency",
     eyebrow: "24/7 emergency",
     title: "2 AM breakdown? We pick up.",
-    body: "A real tech answers day or night — no answering service, no callback queue, no waiting until Monday.",
+    body: "A real tech answers day or night. No answering service, no callback queue, no waiting until Monday.",
     cta: "Emergency? Call right now",
     accent: "dual",
     accentText: "bg-gradient-to-r from-frost to-ember bg-clip-text text-transparent",
@@ -85,7 +85,7 @@ export const VALUE_PROPS: ValueProp[] = [
   },
 ];
 
-/** One value-prop card — shared by the static stack and the scroll journey overlay. */
+/** One value-prop card, shared by the static stack and the scroll journey overlay. */
 export function ValuePropCard({ prop, className = "" }: { prop: ValueProp; className?: string }) {
   return (
     <GlassPanel accent={prop.accent} className={className}>
@@ -105,7 +105,7 @@ export function ValuePropCard({ prop, className = "" }: { prop: ValueProp; class
 }
 
 /**
- * Static value-prop stack — the reduced-motion and poster-tier experience
+ * Static value-prop stack: the reduced-motion and poster-tier experience
  * (the scroll journey re-choreographs the same cards).
  */
 export function ValueProps() {
@@ -114,7 +114,7 @@ export function ValueProps() {
       <SectionHeading
         eyebrow="What we fix"
         title="Broken today. Fixed today."
-        lede="Whatever quit — the AC, the furnace, the air itself — one number covers it."
+        lede="The AC, the furnace, the air itself. Whatever quit, one number covers it."
       />
       <div className="mt-14 grid gap-6 md:mt-20 md:gap-8">
         {VALUE_PROPS.map((prop, i) => (
